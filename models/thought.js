@@ -47,7 +47,7 @@ const ThoughtSchema = new Schema(
             default: Date.now,
             get: createdAtVal => dateFormat(createdAtVal)
         },
-        replies: [ReplySchema]
+        // replies: [ReplySchema]
     },
     {
         toJSON: {
@@ -62,6 +62,6 @@ ThoughtSchema.virtual('reactionCount').get(function () {
     return this.reaction.length;
 });
 
-const Comment = model('Comment', ThoughtSchema);
+const Thought = model('Comment', ThoughtSchema);
 
 module.exports = Thought;
