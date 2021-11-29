@@ -8,6 +8,9 @@
 ## Description
 This application is a working backend API using mongoDB
 
+## Demo
+Link: 
+
 ## Installation
 clone the repo. in the console use the command "npm start". Once the server is up and running go ahead and try out the POST, PUT, GET, DELETE routes for the desired endpoints(users, thoughts, reactions, friends). 
 
