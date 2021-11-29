@@ -103,6 +103,7 @@ const thoughtController = {
             .catch(err => res.json(err));
     },
 
+    // create a reaction on a thought
     addReaction({ params, body }, res) {
         Thought.findOneAndUpdate(
             { _id: params.thoughtId },
@@ -126,7 +127,7 @@ const thoughtController = {
             { $pull: { reactions: { reactionId: params.reactionId } } },
             { new: true }
         )
-            .then(dbUserData => res.json(dbUserData))
+            .then(dbThoughtData => res.json(dbThoughtData))
             .catch(err => res.json(err));
     },
 
