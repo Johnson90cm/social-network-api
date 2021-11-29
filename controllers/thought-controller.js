@@ -3,11 +3,10 @@ const { Thought, User } = require('../models');
 const thoughtController = {
     // add thought to user
     addThought({ body }, res) {
-        console.log(body);
         Thought.create(body)
             .then(({ _id }) => {
                 return User.findOneAndUpdate(
-                    { _id: params.userId },
+                    { _id: body.userId },
                     { $push: { thoughts: _id } },
                     { new: true }
                 )
@@ -38,7 +37,8 @@ const thoughtController = {
         Thought.findOne({ _id: params.id })
             .populate({
                 path: 'thoughts',
-                select: '-__v'
+                select: '-__v',
+                strictPopulate: false
             })
             .select('-__v')
             .then(dbThoughtData => {

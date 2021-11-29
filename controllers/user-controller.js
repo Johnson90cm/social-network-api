@@ -5,7 +5,8 @@ const userController = {
         User.find({})
             .populate({
                 path: 'thoughts',
-                select: '-__v'
+                select: '-__v',
+                // strictPopulate: false
             })
             .select('-__v')
             .sort({ _id: -1 })
