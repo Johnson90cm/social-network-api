@@ -34,12 +34,7 @@ const UserSchema = new Schema(
     },
 );
 
-// get total count of comments and replies on retrieval
-// UserSchema.virtual('commentCount').get(function() {
-//     return this.thoughts.reduce((total, Thought) => total + Thought.replies.length + 1, 0);
-//   });
-
-// create the Pizza model using the PizzaSchema
+// create the User model using the UserSchema
 const User = model('User', UserSchema);
 
 // export the Pizza model
