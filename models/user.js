@@ -12,12 +12,12 @@ const UserSchema = new Schema(
             required: false,
             trim:true
         },
-        // friends: [
-        //     {
-        //         type: Schema.Types.ObjectId,
-        //         ref: 'User'
-        //     }
-        // ],
+        friends: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'User'
+            }
+        ],
         thoughts: [
             {
                 type: Schema.Types.ObjectId,

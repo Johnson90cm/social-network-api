@@ -3,21 +3,20 @@ const dateFormat = require('../utils/dateFormat');
 
 const ThoughtSchema = new Schema(
     {
-        writtenBy: {
+        username: {
             type: String,
-            trim: true
+            required: true
         },
-        commentBody: {
+        thoughtBody: {
             type: String,
             required: true,
-            trim: true
         },
         createdAt: {
             type: Date,
             default: Date.now,
             get: createdAtVal => dateFormat(createdAtVal)
         },
-        // replies: [ReplySchema]
+        reactions: [ReactionSchema]
     },
     {
         toJSON: {
@@ -27,6 +26,34 @@ const ThoughtSchema = new Schema(
         id: false
     }
 );
+
+const ReactionSchema = new Schema(
+    {
+        username: {
+            type: String,
+            required: true
+        },
+        createdAt: {
+            type: Date,
+            default: Date.now,
+            get: createdAtVal => dateFormat(createdAtVal)
+        },
+        reactionId: {
+            type: Schema.Types.ObjectId,
+            default: () => new Types.ObjectId()
+        },
+        reactionBody: {
+            type: String,
+            required: true,
+            maxlength: 280
+        }
+    },
+    {
+        toJSON: {
+            getters: true
+        }
+    }
+)
 
 // ThoughtSchema.virtual('reactionCount').get(function () {
 //     return this.reaction.length;
