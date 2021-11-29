@@ -1,3 +1,5 @@
+// pulled dateFormat.js from pizzahunt project
+
 const addDateSuffix = date => {
   let dateStr = date.toString();
 

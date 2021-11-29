@@ -23,11 +23,12 @@ router
     .put(updateThoughtById)
     .delete(deleteThought)
 
-// Set up POST, and DELTE at /:thoughtId/reactions
+// Set up POST at /:thoughtId/reactions
 router
     .route('/:thoughtId/reactions')
     .post(addReaction)
 
+// Set up DELETE at /:thoughtId/Reactions/:reactionsID
 router
     .route('/:thoughtId/reactions/:reactionId')
     .delete(deleteReaction)
